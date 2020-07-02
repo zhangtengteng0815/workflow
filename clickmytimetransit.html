@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>workflow</title>
+		<link rel="stylesheet" href="jsui/jquery-ui.theme.min.css" />
+		<link rel="stylesheet" href="jsui/jquery-ui.css" />
+		<link rel="stylesheet" href="jsui/jquery-ui.min.css" />
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="workflow.css" />
+		<script src="scripts/jquery.js"></script>
+		<script src="scripts/jquery-1.4.2.min.js"></script>
+		<script src="jsui/jquery-ui.min.js"></script>
+		<script src="bootstrap/js/bootstrap.js"></script>
+		<script src="scripts/less.js"></script>
+		<script src="scripts/angular-1.2.5.js"></script>
+		<script src="workflow.js"></script>
+		<script>
+		$(document).ready(function() {
+			$('#Generalchange').bind('click',
+				function (){
+					if($("#Generalchange").attr("checked")==true){
+		  				 $("#Transientchange").removeAttr("style");
+		  				 $("#Transientchange").css("display","block ");
+		  			}else{
+		  				 $("#Transientchange").attr("style","display: none");
+		  			}
+		  			console.log(123);
+				});
+				$('#Transienttimechange').bind('click',
+				function (){
+					if($("#Generalchange").attr("checked")==true){
+		  				 $("#Transientchange").removeAttr("style");
+		  				 $("#Transientchange").css("display","block ");
+		  			}else{
+		  				 $("#Transientchange").attr("style","display: none");
+		  			}
+		  			console.log(123);
+				});
+			});
+		</script>
+	</head>
+	<body class="container">
+		<header class="page-header"><h1>工作流建模系统</h1></header>
+		<div class="row panel panel-default">
+					<div class="panel-heading"><h3><span class="label label-default">变迁类型</span></h3></div>
+					<div class="radio">
+						  <label>
+						    <input type="radio" name="optionsRadios" id="Transienttimechange">
+						    瞬时变迁
+						  </label>
+					</div>
+					<div class="radio">
+						  <label>
+						    <input type="radio" name="optionsRadios" id="Generalchange" >
+						    普通变迁
+						  </label>
+					</div>
+		</div>
+		<div  id="Transientchange" style="display: none">
+				  <div  class="well" >
+				     请输入变迁时间：<input type="text" id="changetime" > 
+				  </div>
+		</div>
+		<div class="row">
+			<div class=" panel panel-default">
+				<div class="panel-heading">
+					<h3><span class="label label-default">节点描述：</span></h3>
+				</div>
+				<textarea  id="timedescription" ></textarea>
+			</div>
+			</div>
+		<div class="row">
+				<div class=" col-md-4 ">
+					<button id="savettdate" class="btn btn-primary btn-lg" >保存数据</button>
+				</div>
+				<div class=" col-md-4 ">
+					<button id="ttconfirm" class="btn btn-danger btn-lg" >
+						添加到数据库
+					</button>
+				</div>
+				<div class=" col-md-4">
+					<button id="closettpage" class="btn btn-info btn-lg" >取消</button>
+				</div>
+			</div>
+		<footer class="navbar-fixed-bottom text-center">
+			南京信息工程大学<span>&copy; 2018</span>
+		</footer>
+	</body>
+</html>

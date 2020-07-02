@@ -1,0 +1,289 @@
+/*主页面body*/
+body{
+	background-color: #ccffee;
+	margin: 0;
+	padding: 0;
+}
+/*主区域*/
+#contain{
+	border: 20px solid #99ccff;
+	background-color: rgb(254,220,189);
+}
+.onehang{
+	float: left;	
+	margin-left: 25px;
+	 cursor: pointer ;
+}
+.mbstly{
+	 cursor: pointer ;
+	 font: 18px/1.5 'Microsoft YaHei',arial,tahoma,\5b8b\4f53,sans-serif;
+	 color: black;
+}
+/*菜单栏*/
+#menuBar{
+	background-color: rgb(64,64,255);
+	height: 40px;
+	padding: 10px;
+}
+/*显示栏*/
+#displayBar{
+	background-color: rgb(1,120,255);
+	height: 40px;
+	padding: 10px;
+}
+/*文件项*/
+/**
+#myfile {#myedit #myview #mysimulation #myevaluate #myhelp
+	 cursor: hand ;
+	 font: 18px/1.5 'Microsoft YaHei',arial,tahoma,\5b8b\4f53,sans-serif;
+	 color: black;
+}
+*/
+/*控件操作栏区域*/
+#toolBar{
+	width: 90px;
+	background-color:#ccffff ;/*#fedcbd  rgb(224,128,49)*/
+	border: 1px solid black;
+	padding-top: 10px;
+	height: 530px;
+}
+/*内部按钮*/
+.mybtnclor{
+	background-color: rgb(254,220,189);
+	outline: none;  
+    cursor: pointer;  
+}
+/*普通库所*/
+#normalplace{	
+	margin-top: 5px;
+	padding: 10px;
+}
+/*设置函数*/
+#setfunction{
+	margin-top: 5px;
+	padding: 10px;
+}
+/*资源库所*/
+#place{
+	margin-top: 5px;
+	padding: 10px;
+}
+/*绘图按钮*/
+#drawingline{
+	margin-top: 5px;
+	padding: 10px;
+}
+/*进行拖拽按钮*/
+#normalArc{
+	margin-top: 5px;
+	padding: 10px;
+}
+/*时间变迁按钮*/
+#timeTransit{
+	margin-top: 5px;
+	padding: 10px;
+}
+/*上传按钮*/
+#onload{
+	margin-top: 5px;
+	padding: 10px;
+}
+/*下载按钮*/
+#download{
+	margin-top: 5px;
+	padding: 10px;
+}
+/*绘图区*/
+#mydrawing{
+	background-color: #fedcbd;
+}
+/*画图区域*/
+#drawing{
+	position: absolute;
+	left: 0;
+    top: 0;
+	border: 1px solid black;
+	height:530px;
+	width: 1008px;
+}
+/*绘图域*/
+#mycanvas{
+	position: absolute;
+	left: 0;
+    top: 0; 
+    border: 1px solid yellow;
+}
+/*网模型区与状态栏*/
+#attached{
+	border: 1px solid black;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 14px;
+    color: #000000;
+	background-color: #ccffcc;
+}
+/*网模型*/
+#process{
+	border: 1px solid black;	
+	height: 350px;
+}
+#processadd ul{	
+	margin: 6px;
+}
+/*网模型树文字*/
+#networkmodeltree{
+	margin-left: 10px;
+	font-family: Helvetica, "Hiragino Sans GB", "Microsoft Yahei", "微软雅黑", Arial, sans-serif;
+	color:rgb(231,184,0);
+	font-size:20px;
+}
+/*  我的状态栏*/
+#description{
+	background-color : rgb(174,221,129);
+	border: 1px solid black;
+	height: 350px;
+}
+.mytog{
+	border-style: solid solid none solid;
+	font: .8em Arial, Tahoma, Verdana;
+}
+/*关联矩阵按钮*/
+#correlationmatrix{
+	background-color: rgb(107,194,53);
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	color: #ffff00;
+}
+/*对象定义按钮*/
+#objectdefinition{
+	background-color: rgb(38,157,128);
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	color: #ffff00;
+}
+/*模型状态按钮*/
+#modelstate{
+	background-color: rgb(6,128,67);
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+	color: #ffff00;
+}
+/*关联矩阵*/
+#cmdescri{
+	height: 300px;
+	width:518px;
+	background-color: rgb(107,194,53);
+	position: absolute;
+}
+/*对象定义*/
+#oddescri{
+	height: 300px;
+	width:518px;
+	background-color: rgb(38,157,128);
+	position: absolute;
+}
+/*模型状态*/
+#msdescri{
+	height: 300px;
+	width:518px;
+	background-color: rgb(6,128,67);
+	position: absolute;
+}
+/*关联框*/
+#cmdescribox{
+	background-color: rgb(255,255,255);
+	width: 478px;
+	height: 270px;
+	margin-top: 15px;
+	margin-left:20px; 
+}
+/*对象框*/
+#oddescribox1{
+	background-color: rgb(255,255,255);
+	width: 478px;
+	height: 270px;
+	margin-top: 15px;
+	margin-left:20px; 
+}
+#oddescribox2{
+	background-color: rgb(255,255,255);
+	width: 478px;
+	height: 270px;
+	margin-top: 15px;
+	margin-left:20px; 
+}
+/*模型框*/
+#msdescribox1{
+	background-color: rgb(255,255,255);
+	width: 478px;
+	height: 270px;
+	margin-top: 15px;
+	margin-left:20px; 
+}
+#msdescribox2{
+	background-color: rgb(255,255,255);
+	width: 478px;
+	height: 270px;
+	margin-top: 15px;
+	margin-left:20px; 
+}
+/*灰色背景*/
+.gray{
+	background-color: rgb(200,200,200);
+	border: 1px solid rgb(64,64,64);
+}
+
+
+
+
+/*clickmyplace页面*/
+#timesetting{
+	 width: 800px;
+    height:150px;
+}
+#sourcedescription{
+	width: 800px;
+    height:150px;
+}
+
+
+/*setfunction页面*/
+#distributionFunctionDescription{
+	 width: 800px;
+    height:150px;
+}
+#parameter1prompt{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 4px;
+	font-weight: normal;
+}
+#parameter2prompt{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-size: 4px;
+	font-weight: normal;
+}
+
+/*clicknormalplacce页面*/
+#nodedescription{
+	width: 800px;
+    height:150px;
+}
+
+
+/*clickmytimetransit页面*/
+#timedescription{
+	width: 800px;
+    height:150px;
+}
+
+/*mydate页面*/
+.mytablehead{
+	text-align:center;		       
+	margin-left:105px;  
+	margin-right:85px;  
+	background-color: rgb(227,160,93);  
+	border: none;  
+	border: 1px;  
+	color: rgb(89,61,67);  
+	border-collapse:collapse;  
+	font: 14px  "宋体"; 
+	font-size:20px ;
+	padding-bottom: 5px;
+	padding-top: 5px;
+}

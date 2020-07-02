@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>workflow</title>
+		<link rel="stylesheet" href="jsui/jquery-ui.theme.min.css" />
+		<link rel="stylesheet" href="jsui/jquery-ui.css" />
+		<link rel="stylesheet" href="jsui/jquery-ui.min.css" />
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="workflow.css" />
+		<script src="scripts/jquery.js"></script>
+		<script src="js/jquery-1.11.1.js"></script>
+		<script src="scripts/jquery-1.4.2.min.js"></script>
+		<script src="jsui/jquery-ui.min.js"></script>
+		<script src="bootstrap/js/bootstrap.js"></script>
+		<script src="scripts/less.js"></script>
+		<script src="scripts/angular-1.2.5.js"></script>
+		<script src="workflow.js"></script>
+	</head>
+	<body class="container">
+		<!--头部 -->
+		<header class="page-header"><h1>工作流建模系统</h1></header>
+		<div class="container-fluid" id="contain">
+			<!-- 菜单栏-->
+			<div id="menuBar" class="row">
+					<!-- 文件栏-->
+					<div class="onehang">
+				  			<label><a id="myfile"  class="mbstly">文件</a> </label><span class="glyphicon glyphicon-list-alt" aria-hidden="true" ></span>
+						  	<div>
+							  <ul id="filedown" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" style="display: none;position: absolute">
+							    	<li id="cnewfile"  role="presentation"><a role="menuitem" tabindex="-1">新建</a></li>
+							    	<li id="copenfile" role="presentation"><a role="menuitem" tabindex="-1">打开</a></li>
+							    	<li id="csavefile" role="presentation"><a role="menuitem" tabindex="-1">保存</a></li>
+							    	<li id="cclosefile" role="presentation"><a role="menuitem" tabindex="-1">关闭</a></li>
+							  </ul>
+						  	</div>
+					</div>
+					<!-- 编辑-->
+					<div class="onehang">
+				  			<label><a id="myedit"  class="mbstly">编辑</a> </label><span class="glyphicon glyphicon-edit" aria-hidden="true" ></span>
+						  	<div>
+							  <ul id="editdown" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" style="display: none;position: absolute">
+							    	<li role="presentation"><a role="menuitem" tabindex="-1">撤销</a></li>
+							    	<li role="presentation"><a role="menuitem" tabindex="-1">清除</a></li>
+							  </ul>
+						  	</div>
+					</div>
+					<!-- 视图-->
+					<div class="onehang">
+				  			<label><a id="myview"  class="mbstly">视图</a> </label><span class="glyphicon glyphicon-eye-open" aria-hidden="true" ></span>
+						  	<div>
+							  <ul id="viewdown" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" style="display: none;position: absolute">
+							    	<li id="ctoolbar" role="presentation"><a role="menuitem" tabindex="-1">工具条</a></li>
+							    	<li id="cstatusbar" role="presentation"><a role="menuitem" tabindex="-1">状态条</a></li>
+							    	<li id="ctoolcolumn" role="presentation"><a role="menuitem" tabindex="-1">工具栏</a></li>
+							    	<li id="ctreeview" role="presentation"><a role="menuitem" tabindex="-1">树视图</a></li>
+							  </ul>
+						  	</div>
+					</div>
+					<!-- 仿真-->
+					<div class="onehang">
+				  			<label><a id="mysimulation"  class="mbstly">仿真</a> </label><span class="glyphicon glyphicon-forward" aria-hidden="true" ></span>
+						  	<div>
+							  <ul id="simulationdown" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" style="display: none;position: absolute">
+							    	<li id="cpresim" role="presentation"><a role="menuitem" tabindex="-1">仿真初始化</a></li>
+							    	<li id="cstartsim" role="presentation"><a role="menuitem" tabindex="-1">开始仿真</a></li>
+							  </ul>
+						  	</div>
+					</div>
+					<!-- 系统评价-->
+					<div class="onehang">
+				  			<label><a id="myevaluate"  class="mbstly">系统评价</a> </label><span class="glyphicon glyphicon-stats" aria-hidden="true" ></span>
+						  	<div>
+							  <ul id="evaluatedown" class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1" style="display: none;position: absolute">
+							    	<li id="timestatistics" role="presentation"><a role="menuitem" tabindex="-1">时间统计</a></li>
+							    	<li id="coststatistics" role="presentation"><a role="menuitem" tabindex="-1">成本统计</a></li>
+							 		<li id="resourcesstatistics" role="presentation"><a role="menuitem" tabindex="-1">资源统计</a></li>
+							    	<li id="queuestatistics" role="presentation"><a role="menuitem" tabindex="-1">队列统计</a></li>
+							  		<li id="reachabletreestatistics" role="presentation"><a role="menuitem" tabindex="-1">可达数统计</a></li>
+							  		<li><hr /></li>
+							    	<li id="comprehensiveanalysis" role="presentation"><a role="menuitem" tabindex="-1">综合分析</a></li>
+							  </ul>
+						  	</div>
+					</div>
+					<!-- 帮助-->
+					<div class="onehang">
+				  			<label><a id="myhelp" class="mbstly">帮助</a> </label><span class="glyphicon glyphicon-question-sign" aria-hidden="true" ></span>
+					</div>
+			</div>
+			<!--显示栏-->
+			<div id="displayBar" class="row">
+					<div id="newfile" class="onehang col-md-0.5" data-toggle="tooltip" data-placement="bottom" title="新建"><span class="glyphicon  glyphicon-file" aria-hidden="true" ></span></div>
+					<div id="openfile" class="onehang col-md-0.5" data-toggle="tooltip" data-placement="bottom" title="打开"><span class="glyphicon glyphicon-open-file" aria-hidden="true" ></span></div>
+					<div id="savefile" class="onehang col-md-0.5" data-toggle="tooltip" data-placement="bottom" title="保存"><span class="glyphicon glyphicon-save-file" aria-hidden="true" ></span></div>
+					<div id="cut" class="onehang col-md-0.5" data-toggle="tooltip" data-placement="bottom" title="剪切"><span class="glyphicon glyphicon-scissors" aria-hidden="true" ></span></div>
+					<div id="copy" class="onehang col-md-0.5" data-toggle="tooltip" data-placement="bottom" title="复制"><span class="glyphicon glyphicon-duplicate" aria-hidden="true" ></span></div>
+					<div id="paste" class="onehang col-md-0.5" data-toggle="tooltip" data-placement="bottom" title="粘贴"><span class="glyphicon glyphicon-paste" aria-hidden="true" ></span></div>
+					<div id="print" class="onehang col-md-0.5" data-toggle="tooltip" data-placement="bottom" title="打印"><span class="glyphicon glyphicon-print" aria-hidden="true" ></span></div>
+					<div id="help" class="onehang col-md-0.5" data-toggle="tooltip" data-placement="bottom" title="帮助"><span class="glyphicon glyphicon-question-sign" aria-hidden="true" ></span></div>
+					<div id="initsimulation" class="onehang col-md-0.5"  data-toggle="tooltip" data-placement="bottom" title="仿真初始化"><span class="glyphicon glyphicon-align-justify" aria-hidden="true" ></span></div>
+					<div id="startsimulation"class="onehang col-md-0.5" data-toggle="tooltip" data-placement="bottom" title="开始仿真"><span class="glyphicon glyphicon-play" aria-hidden="true" ></span></div>
+					<div id="simulationtime"class="onehang col-md-0.5" data-toggle="tooltip" data-placement="bottom" title="仿真时间"><span class="glyphicon glyphicon-dashboard" aria-hidden="true" ></span></div>
+					<div class="onehang col-md-2.5"><label style="margin-right: 5px;">系统时间</label><input id="timeshow" type="text" disabled="true" /></div>
+					<!--
+						<div  class="onehang col-md-1" style="height:20px;width: 60px;background-color: rgb(34,239,34);"></div>
+					-->
+					<div id="executetext" class="onehang col-md-1">仿真</div>
+					<div class="progress">
+						  <div id="executetwig" class="progress-bar progress-bar-striped active progress-bar-danger" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+						    0%
+						  </div>
+					</div>
+					<!--
+					<div  class="onehang col-md-1" style="height:20px;width: 60px;background-color: rgb(255,0,0);"></div>
+					<div class="onehang col-md-0.5">执行完毕</div>
+					-->
+			</div>
+			<div class="row">
+				<div id="toolBar" class=" col-md-3">
+					<button id="normalplace" class="btn btn-default mybtnclor" type="button" data-toggle="tooltip" data-placement="bottom" title="添加普通库所">
+						<img id="imgzeo" src="myico/normalplace.png"/>
+					</button>
+					<button id="place" class="btn btn-default mybtnclor"  type="button" data-toggle="tooltip" data-placement="bottom" title="添加资源库所">
+						<img id="imgone" src="myico/sourceplace.png"/>
+					</button>
+                	<button id="timeTransit" class="btn btn-default mybtnclor"  type="button" data-toggle="tooltip" data-placement="bottom" title="添加变迁">
+                		<img id="imgtwo" src="myico/timetrans.png"/>
+                	</button>
+                	<button id="setfunction" class="btn btn-default mybtnclor"   type="button" data-toggle="tooltip" data-placement="bottom" title="设置函数">
+                		<img  src="myico/F.png"/>
+                	</button>
+                	<button id="normalArc" class="btn btn-default mybtnclor"  type="button"  data-toggle="tooltip" data-placement="bottom" title="移动控件">
+                		<img src="myico/drang.png"/>
+                	</button>
+                	<button id="drawingline" class="btn btn-default mybtnclor"  type="button" data-toggle="tooltip" data-placement="bottom" title="绘制流程">
+                		<img  src="myico/drawline.png"/>
+                	</button>
+                	<button id="onload" class="btn btn-default mybtnclor"  type="button" data-toggle="tooltip" data-placement="bottom" title="上传数据">
+                		<img id="imgthree" src="myico/onload.png"/>
+                	</button>
+                	<button id="download" class="btn btn-default mybtnclor"  type="button"  data-toggle="tooltip" data-placement="bottom" title="下载数据">
+                		<img id="imgfour" src="myico/download .png"/>
+                	</button>
+				</div>
+				<div id="mydrawing" class=" col-md-9 col-md-offset-0.5">
+						<canvas id="mycanvas" width="1008" height="530" style="z-index: 0"></canvas>
+						<div id="drawing" style="z-index: 1" > </div>
+				</div>	
+			</div>
+			<div id ="attached" class="row">
+					<div id="process" class=" col-md-6">
+						<div id="processadd" data-spy="scroll"  style="overflow-y: auto;height:347px">    
+							<div id="networkmodeltree">网模型树</div>
+							<ul class="row nav nav-tabs" role="tablist">
+								<div  class=" col-md-4">类型</div>
+								<div  class=" col-md-4">名称</div>
+								<div  class=" col-md-4">标记</div>
+    						</ul>
+						</div>
+					</div>
+					<div id="description" class="col-md-6">
+						<div  class="btn-group btn-group-justified" role="group" >
+							<div class=" btn-group  btn-group-lg" role="group" >
+								<div id="correlationmatrix" type="button"  class="btn btn-default mytog">关联矩阵</div>
+							</div>
+							<div class=" btn-group  btn-group-lg" role="group" >
+								<div id="objectdefinition" type="button"  class="btn btn-default mytog">对象定义</div>
+							</div>
+							<div  class=" btn-group  btn-group-lg" role="group" >
+								<div id="modelstate" type="button"  class="btn btn-default mytog">模型函数</div>
+							</div>	
+						</div>		
+							<div class="tab-content">
+								<div id="cmdescri">
+									<div id="cmdescribox" data-spy="scroll"  style="overflow-y: auto;height:275px">    
+										<div  class=" col-md-3 gray">名称</div>
+										<div  class=" col-md-5 gray">类型</div>
+										<div  class=" col-md-4 gray">描述</div>
+									</div>
+								</div>
+							</div>
+							<div class="tab-content">
+								<div id="oddescri"  style="display:none">
+										<div id="oddescribox1" data-spy="scroll"  style="overflow-y: auto;height:132px">    
+											<div  class=" col-md-3 gray">名称</div>
+											<div  class=" col-md-5 gray">类型</div>
+											<div  class=" col-md-4 gray">容量</div>
+										</div>
+										<div id="oddescribox2" data-spy="scroll"  style="overflow-y: auto;height:133px">    
+											<div  class=" col-md-3 gray">名称</div>
+											<div  class=" col-md-5 gray">类型</div>
+											<div  class=" col-md-4 gray">资源数量</div>
+										</div>
+								</div>
+							</div>
+							<div class="tab-content">
+								<div id="msdescri" style="display:none">
+									<div id="msdescribox1" data-spy="scroll"  style="overflow-y: auto;height:132px">    
+											<div  class=" col-md-4 gray">分布函数</div>
+											<div  class=" col-md-4 gray">参数1</div>
+											<div  class=" col-md-4 gray">参数2</div>
+									</div>
+									<div id="msdescribox2" data-spy="scroll"  style="overflow-y: auto;height:133px">    
+											<div  class=" gray" style="text-align: center;">分布函数描述</div>
+											
+									</div>
+								</div>
+							</div>	
+						</div>
+					</div>				
+			</div>	
+		</div>
+		<div id="mytime"></div>
+		<button id="ceshi">ceshianniu</button>
+		<footer class="navbar-fixed-bottom text-center">
+			南京信息工程大学<span>&copy; 2018</span>
+		</footer>
+	</body>
+</html>

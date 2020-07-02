@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>workflow</title>
+		<link rel="stylesheet" href="jsui/jquery-ui.theme.min.css" />
+		<link rel="stylesheet" href="jsui/jquery-ui.css" />
+		<link rel="stylesheet" href="jsui/jquery-ui.min.css" />
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="workflow.css" />
+		<script src="scripts/jquery.js"></script>
+		<script src="scripts/jquery-1.4.2.min.js"></script>
+		<script src="jsui/jquery-ui.min.js"></script>
+		<script src="bootstrap/js/bootstrap.js"></script>
+		<script src="scripts/less.js"></script>
+		<script src="scripts/angular-1.2.5.js"></script>
+		<script src="workflow.js"></script>
+	</head>
+	<body class="container">
+		<header class="page-header"><h1>工作流建模系统</h1></header>
+			<div>
+				<div class="row">
+					<div class=" col-md-6">
+						<label for="resourcesnums">资源数量</label>
+						<input id="resourcesnums" type="number" />
+					</div>
+					<div class=" col-md-6">
+						<label for="Resourcestype">资源类型</label>
+						<select id="Resourcestype">
+							<option>SourcePlace</option>
+							<option>SubPlace</option>
+							<option>TimedTransit</option>
+						</select>
+					</div>
+				</div>
+				<div class="row panel panel-default">
+					<div class="panel-heading"><h3><span class="label label-default">资源成本</span></h3></div>
+					<div class=" col-md-6">
+						<label for="Resourcescost">资源成本</label>
+						<input id="Resourcescost" type="text" />
+					</div>
+					<div class=" col-md-6">
+						<label for="timeoutcost">超时成本</label>
+						<input id="timeoutcost" type="text" />
+					</div>
+					<div class=" col-md-6">
+						<label for="fixedcost">固定成本</label>
+						<input id="fixedcost" type="text" />
+					</div>	
+					<div class=" col-md-6">
+						<label for="Maximumtimeout">最大超时</label>
+						<input id="Maximumtimeout" type="text" />
+					</div>	
+				</div>
+				<div class="row panel panel-default">
+					<div class="panel-heading">
+						<h3><span class="label label-default">时间设定</span></h3>
+					</div>
+					<textarea  id="timesetting" ></textarea>
+				</div>
+			</div>
+			<div class="row panel panel-default">
+				<div class="panel-heading">
+					<h3><span class="label label-default">节点描述：</span></h3>
+				</div>
+				<textarea  id="sourcedescription" ></textarea>
+			</div>
+			<div class="row">
+				<div class=" col-md-4 ">
+					<button id="savedate" class="btn btn-primary btn-lg" >保存数据</button>
+				</div>
+				<div class=" col-md-4 ">
+					<button id="myplaceiformationconfirm" class="btn btn-danger btn-lg" >
+						添加到数据库
+					</button>
+				</div>
+				<div class=" col-md-4">
+					<button id="closeplacepage" class="btn btn-info btn-lg" >取消</button>
+				</div>
+			</div>
+		<footer class="navbar-fixed-bottom text-center">
+			南京信息工程大学<span>&copy; 2018</span>
+		</footer>
+	</body>
+</html>

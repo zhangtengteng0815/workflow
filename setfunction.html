@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>workflow</title>
+		<link rel="stylesheet" href="jsui/jquery-ui.theme.min.css" />
+		<link rel="stylesheet" href="jsui/jquery-ui.css" />
+		<link rel="stylesheet" href="jsui/jquery-ui.min.css" />
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="workflow.css" />
+		<script src="scripts/jquery.js"></script>
+		<script src="scripts/jquery-1.4.2.min.js"></script>
+		<script src="jsui/jquery-ui.min.js"></script>
+		<script src="bootstrap/js/bootstrap.js"></script>
+		<script src="scripts/less.js"></script>
+		<script src="scripts/angular-1.2.5.js"></script>
+		<script src="workflow.js"></script>
+		<script>
+			$(document).ready(function() {
+				//二项分布
+				$('#binomialDistribution').bind('click',
+					function (){
+						if($("#binomialDistribution").attr("checked")==true){
+			  				 $("#distributionFunctionDescription").html("二项分布的概念：二项分布即重复n次独立的伯努利试验。在每次试验中只有两种可能的结果，而且两种结果发生与否互相对立，并且相互独立，与其它各次试验结果无关，事件发生与否的概率在每一次独立试验中都保持不变，则这一系列试验总称为n重伯努利实验，当试验次数为1时，二项分布就是伯努利分布。");  				
+			  				 //$("#parameter1").html();
+			  				 $("#parameter1prompt").html("*请输入0~1的数*");
+			  				 $("#parameter2").attr("disabled","disabled");
+			  				 //$("#parameter2prompt").html();
+			  			}
+					});
+				//正态分布
+				$('#normalDistribution').bind('click',
+					function (){
+						if($("#normalDistribution").attr("checked")==true){
+			  				 $("#distributionFunctionDescription").html("正态分布的概念：正态分布是具有两个参数μ和σ2的连续型随机变量的分布，第一参数μ是服从正态分布的随机变量的均值，第二个参数σ2是此随机变量的方差，所以正态分布记作N(μ，σ2 )。当μ=0,σ=1时，正态分布就成为标准正态分布");
+			  				 //$("#parameter1").html();
+			  				 $("#parameter1prompt").html("*请输入实数*");
+			  				 $("#parameter2").attr("disabled","disabled");
+			  				 //$("#parameter2prompt").html();
+			  			}
+					});
+					//泊松分布
+				$('#poissonDistribution').bind('click',
+					function (){
+						if($("#poissonDistribution").attr("checked")==true){
+			  				 $("#distributionFunctionDescription").html("泊松分布的概念：设随机变量X所有可能取的值为0 , 1 , 2 , … ，且概率分布为：其中 λ >0 是常数，则称 X 服从参数为 的泊松分布，记作X~P( λ )。");
+			  				 //$("#parameter1").html();
+			  				 $("#parameter1prompt").html("*请输入大于0的数*");
+			  				 $("#parameter2").attr("disabled","disabled");
+			  				 //$("#parameter2prompt").html();
+			  			}
+					});
+					//均匀分布
+				$('#evenlyDistribution').bind('click',
+					function (){
+						if($("#evenlyDistribution").attr("checked")==true){
+			  				 $("#distributionFunctionDescription").html("均匀分布概念：设连续型随机变量X的分布函数为F(x)=(x-a)/(b-a)，a≤x≤b则称随机变量X服从[a,b]上的均匀分布，记为X~U[a,b]。");
+			  				 //$("#parameter1").html();
+			  				 $("#parameter1prompt").html("*请输入实数*");
+			  				 $("#parameter2").attr("disabled",false);
+			  				 $("#parameter2prompt").html("*请输入大于参数1的实数*");
+			  			}
+					});
+					//指数分布
+				$('#indexDistribution').bind('click',
+					function (){
+						if($("#indexDistribution").attr("checked")==true){
+			  				 $("#distributionFunctionDescription").html("指数分布概念：其中λ>0是分布的一个参数，常被称为率参数（rateparameter）。即每单位时间内发生某事件的次数。指数分布的区间是[0,∞)。如果一个随机变量呈指数分布，则可以写作：~Exponential（λ）。");
+			  				//$("#parameter1").html();
+			  				 $("#parameter1prompt").html("*请输入大于0的数*");
+			  				 $("#parameter2").attr("disabled",false);
+			  				 $("#parameter2prompt").html("*请输入大于0的数*");
+			  			}
+					});
+					//韦伯分布
+				$('#rayleighDistribution').bind('click',
+					function (){
+						if($("#rayleighDistribution").attr("checked")==true){
+			  				 $("#distributionFunctionDescription").html("瑞利分布概念：其概率密度为：当x<0时，f（x，λ，k）=0，当x>=0时，f（x，λ，k）=(k/λ)[(x/λ)^(k-1)][e^(-(x/λ)^k)]，其中，x是随机变量，λ>0是比例参数（scale parameter），k>0是形状参数（shape parameter）。当k=1，它是指数分布；k=2时，是Rayleigh distribution（瑞利分布）。");
+			  				 //$("#parameter1").html();
+			  				 $("#parameter1prompt").html("*请输入大于0的数*");
+			  				 $("#parameter2").attr("disabled",false);
+			  				 $("#parameter2prompt").html("*请输入大于0的数*");
+			  			}
+					});
+			});
+		</script>
+	</head>
+	<body class="container">
+		<header class="page-header"><h1>工作流建模系统</h1></header>
+		<div class="row panel panel-default">
+			<div class="panel-heading"><h3><span class="label label-default">分布函数</span></h3></div>
+				<div class=" radio">
+				  <label>
+				    <input type="radio" name="optionsRadios" id="binomialDistribution"  checked>
+				   二项分布
+				  </label>
+				</div>
+				<div class="radio">
+				  <label>
+				    <input type="radio" name="optionsRadios" id="normalDistribution">
+				    正态分布
+				  </label>
+				</div>
+				<div class="radio">
+				  <label>
+				    <input type="radio" name="optionsRadios" id="poissonDistribution" >
+				    泊松分布
+				  </label>
+				</div>
+				<div class="radio">
+				  <label>
+				    <input type="radio" name="optionsRadios" id="evenlyDistribution" >
+				    均匀分布
+				  </label>
+				</div>
+				<div class="radio">
+				  <label>
+				    <input type="radio" name="optionsRadios" id="indexDistribution" >
+				    指数分布
+				  </label>
+				</div>
+				<div class="radio">
+				  <label>
+				    <input type="radio" name="optionsRadios" id="rayleighDistribution" >
+				    瑞利分布
+				  </label>
+				</div>
+		</div>
+		<div class="row">
+			<div class=" col-md-6">
+				<label for="parameter1">参数1</label>
+				<input id="parameter1" type="number" />
+				<label id="parameter1prompt">*请输入0~1的数*</label>
+			</div>
+			<div class=" col-md-6">
+				<label for="parameter2">参数2</label>
+				<input id="parameter2" type="number" disabled="disabled"/>
+				<label id="parameter2prompt"></label>
+			</div>
+		</div>
+		<div class="row panel panel-default">
+				<div class="panel-heading">
+					<h3><span class="label label-default">分布函数描述：</span></h3>
+				</div>
+				<textarea  id="distributionFunctionDescription" disabled>二项分布的概念：二项分布即重复n次独立的伯努利试验。在每次试验中只有两种可能的结果，而且两种结果发生与否互相对立，并且相互独立，与其它各次试验结果无关，事件发生与否的概率在每一次独立试验中都保持不变，则这一系列试验总称为n重伯努利实验，当试验次数为1时，二项分布就是伯努利分布。</textarea>
+		</div>
+		<div class="row">
+			<div class=" col-md-4 ">
+					<button id="savefunctiondate" class="btn btn-primary btn-lg" >保存数据</button>
+				</div>
+			<div class=" col-md-4"><button id="setfunctioniformationconfirm" class="btn btn-danger btn-lg" >添加到数据库</button></div>
+			<div class=" col-md-4">
+				<button id="closesetfunctionpage" class="btn btn-info btn-lg" >取消</button>
+			</div>
+		</div>
+		<footer class="navbar-fixed-bottom text-center">
+			南京信息工程大学<span>&copy; 2018</span>
+		</footer>
+	</body>
+</html>

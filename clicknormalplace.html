@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<title>workflow</title>
+		<link rel="stylesheet" href="jsui/jquery-ui.theme.min.css" />
+		<link rel="stylesheet" href="jsui/jquery-ui.css" />
+		<link rel="stylesheet" href="jsui/jquery-ui.min.css" />
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="workflow.css" />
+		<script src="scripts/jquery.js"></script>
+		<script src="scripts/jquery-1.4.2.min.js"></script>
+		<script src="jsui/jquery-ui.min.js"></script>
+		<script src="bootstrap/js/bootstrap.js"></script>
+		<script src="scripts/less.js"></script>
+		<script src="scripts/angular-1.2.5.js"></script>
+		<script src="workflow.js"></script>
+		<script type="text/javascript"> 
+			$(document).ready(function() {
+				var usenormalname=window.location.search;
+				usenormalname=usenormalname.substring(6);
+				//console.log(usenormalname);
+				var yeid=usenormalname.substring(11);
+				$('#normalplaceid').attr("value",yeid);
+				$('#normalplacename').attr("value",usenormalname);
+			});
+		</script>
+	</head>
+	<body class="container">
+		<header class="page-header"><h1>工作流建模系统</h1></header>
+			<div class="row panel panel-default">
+				<div class="panel-heading"><h3><span class="label label-default">库所信息</span></h3></div>
+					<div class=" col-md-6 ">	
+						<label >ID号</label>
+						<input id="normalplaceid" type="text" disabled="true"/>
+					</div>
+					<div class=" col-md-6 ">
+						<label >名称</label>
+						<input id="normalplacename" type="text" disabled="true"/>  
+					</div>
+					<div class=" col-md-6 ">
+						<label >类型</label>
+						<input type="text" disabled="true" value="普通库所"/>
+					</div>
+					<div class=" col-md-6 ">
+						<label >容量</label>
+						<input id="capacity"  type="number"/>
+					</div>
+			</div>
+			<div class="row">
+			<div class=" panel panel-default">
+				<div class="panel-heading">
+					<h3><span class="label label-default">节点描述：</span></h3>
+				</div>
+				<textarea  id="nodedescription" ></textarea>
+			</div>
+			</div>
+		<div class="row">
+				<div class=" col-md-4 ">
+					<button id="savenormalplace" class="btn btn-primary btn-lg" >保存数据</button>
+				</div>
+				<div class=" col-md-4 ">
+					<button id="normalplaceconfirm" class="btn btn-danger btn-lg" >
+						添加到数据库
+					</button>
+				</div>
+				<div class=" col-md-4">
+					<button id="closenormalplacepage" class="btn btn-info btn-lg" >取消</button>
+				</div>
+			</div>	
+		<footer class="navbar-fixed-bottom text-center">
+			南京信息工程大学<span>&copy; 2018</span>
+		</footer>
+	</body>
+</html>

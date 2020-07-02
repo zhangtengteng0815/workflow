@@ -1,0 +1,134 @@
+<!--
+	Author: zhangtengteng
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>工作流管理系统</title>	
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<link rel="stylesheet" href="jsui/jquery-ui.theme.min.css" />
+		<link rel="stylesheet" href="jsui/jquery-ui.css" />
+		<link rel="stylesheet" href="jsui/jquery-ui.min.css" />
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="workflow.css" />
+		<script src="scripts/jquery.js"></script>
+		<script src="scripts/jquery-1.4.2.min.js"></script>
+		<script src="jsui/jquery-ui.min.js"></script>
+		<script src="bootstrap/js/bootstrap.js"></script>
+		<script src="scripts/less.js"></script>
+		<script src="scripts/angular-1.2.5.js"></script>
+		<script src="Chart/js/Chart-1.0.1-beta.4.js"></script>
+		<script src="displayphp/resourcesstatistics.js"></script>		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+ <style type="text/css">	
+				html{   
+				    width: 100%;   
+				    height: 100%;   
+				    overflow: hidden;   
+				    font-style: sans-serif;   
+				}   
+				body{  
+					background-image:url("Icons/1.jpg"); 
+					background-size: cover;
+				    width: 100%;   
+				    height: 100%;   
+				    font-family: 'Open Sans',sans-serif;   
+				    margin: 0;   
+				 	}  
+				 	label{
+				 		margin-left:13px;
+				 		margin-top:3px;
+				 	}  
+				 	h3{
+				 		text-align: center;
+				 		padding-top:20px;
+				 	}
+				#hedd{
+					color: white;
+					height: 100px;
+					text-align:center;
+					font-size:35px;
+            		padding-top: 50px;
+            		
+				}
+				#main{
+					height: 420px;
+					width: 940px;
+					padding:0;
+					margin: 50px auto;	
+					background:rgba(177,50,106,0.8);
+					color: rgb(255,255,255);
+				}
+				#footer{
+					color: white;
+				}
+				
+	     </style>
+ <script>
+						
+				$(document).ready(function() {
+							$('#zuce').bind('click',function(){					
+									var username=$('#zcusname').val();
+									var mailbox=$('#zcmailbox').val();
+									var password=$('#zcpassword').val();
+									arr={
+										'username':username,
+										'mailbox':mailbox,
+										'password':password,
+									};
+									console.log(arr);
+									if (arr.username==""||arr.mailbox==""||arr.password=="") {
+										alert("不能为空");
+									} else{
+										$.ajax({
+													url: "zuce.php",
+													type: "post",
+													dataType: "JSON",
+													async: false,		
+													data:{arr:arr},			
+													success:function(data){
+														alert("注册成功");
+													},
+													error:function(msg){
+														alert("注册失败");
+													}
+											});	
+									};
+																					
+								});									
+						});
+</script>	
+		
+</head>
+<body>  
+	<h1 id="hedd">工作流管理系统</h1> 
+	<div id="main">
+			<h3>注册 </h3>
+				<form>
+					<div class="form-group">
+						<label for="zcusname">用户名</label>
+						<input id="zcusname" class="form-control" type="text" name="Name" placeholder="用户名" required=""/>
+					</div>
+					<div class="form-group">	
+						<label for="zcmailbox">邮箱</label>
+						<input id="zcmailbox" class="form-control" type="text" name="Email" class="email" placeholder="邮件" required=""/>
+					</div>
+					<div class="form-group">	
+						<label for="zcpassword">密码</label>
+						<input id="zcpassword" class="form-control" type="password" name="Password" class="password" placeholder="密码" required=""/>
+					</div>
+					<div class="form-group">	
+						<label for="mima">重复密码</label>
+						<input id="mima" type="password" class="form-control" name="Password" class="password" placeholder="重复密码" required=""/>					
+					</div>				
+						<input id="zuce" type="submit" class="btn btn-primary btn-lg btn-block" value="点击注册">
+				</form>
+	</div>
+		<footer id="footer" class="navbar-fixed-bottom text-center">
+			南京信息工程大学<span>&copy; 2018</span>
+		</footer>
+</body>  
+</html>  
